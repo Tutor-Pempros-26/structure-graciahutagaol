@@ -1,30 +1,46 @@
 // 12S25001 - Gracia Anggreini Fitaloka Hutagaol
+#include <string.h>
 #include <stdio.h>
 
-struct Transaksi {
-    int jumlah_buku;
-    double harga_per_buku;
-    double total;
-    double potongan;
+struct transaksi 
+{
+  int jumlahbuku;
+  double harga;
+  double totalharga;
+  double diskon;
+  double totalbayar;
 };
 
-int main() {
-    struct Transaksi trx;
 
-    scanf("%d", &trx.jumlah_buku);
-    scanf("%lf", &trx.harga_per_buku);
+int main(int _argv, char **_argc)
+{
+  struct transaksi t;
 
-    trx.total = trx.jumlah_buku * trx.harga_per_buku;
+  scanf("%d", &t.jumlahbuku);
+  scanf("%lf", &t.harga);
 
-    if (trx.total >= 500000) trx.potongan = trx.total * 0.15;
-    else if (trx.total >= 100000) trx.potongan = trx.total * 0.10;
-    else if (trx.total > 50000) trx.potongan = trx.total * 0.05;
-    else trx.potongan = -1;
+  t.totalharga= t.jumlahbuku * t.harga;
 
-    if (trx.potongan == -1)
-        printf("---\n%.2lf\n", trx.total);
-    else
-        printf("%.2lf\n%.2lf\n", trx.potongan, trx.total - trx.potongan);
+  if (t.totalharga > 500000) {
+    t.diskon = t.totalharga * 0.15;
+  } else if (t.totalharga > 100000){
+    t.diskon =  t.totalharga * 0.10;
+  } else if (t.totalharga > 50000) {
+    t.diskon =  t.totalharga * 0.05;
+  } else {
+    t.diskon = 0;
+  }
 
-    return 0;
+t.totalbayar = t.totalharga - t.diskon;
+
+if (t.diskon > 0) {
+      printf("%.2lf\n", t.diskon);
+  } else {
+      printf("---\n");
+  }
+
+  printf("%.2lf\n", t.totalbayar);
+
+  return 0;
+
 }

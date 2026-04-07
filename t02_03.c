@@ -1,32 +1,39 @@
 // 12S25001 - Gracia Anggreini Fitaloka Hutagaol
+
 #include <stdio.h>
+#include <stdlib.h>
 
-struct Operasi {
+int main(int _argv, char **_argc)
+{
     char op;
-    int hasil;
-};
+    int hasil = 0;
+    int angka;
+    int iterasi = 0;
 
-int main() {
-    struct Operasi opr;
-    int input;
+    scanf("%c", &op);
 
-    scanf(" %c", &opr.op);
+    if (op == '*') {
+        hasil = 1;
+    }
 
-    if (opr.op == '+') opr.hasil = 0;
-    else if (opr.op == '-') opr.hasil = 0;
-    else if (opr.op == '*') opr.hasil = 1;
+    while (iterasi < 4) {
+        scanf("%d", &angka);
 
-    while (scanf("%d", &input) == 1) {
-        if (input == -1) {
-            printf("%d\n", opr.hasil);
+        if (angka == -1) {
+            printf("0\n");
             break;
         }
 
-        if (opr.op == '+') opr.hasil += input;
-        else if (opr.op == '-') opr.hasil -= input;
-        else if (opr.op == '*') opr.hasil *= input;
+        if (op == '+') {
+            hasil = hasil + angka;
+        } else if (op == '-') {
+            hasil = abs(hasil - angka);
+        } else if (op == '*') {
+            hasil = hasil * angka;
+        }
 
-        printf("%d\n", opr.hasil);
+        printf("%d\n", hasil);
+        iterasi++;
     }
 
     return 0;
