@@ -13,16 +13,12 @@ int main() {
 
     scanf(" %c", &opr.op);
 
-    // inisialisasi sesuai operator
     if (opr.op == '+') opr.hasil = 0;
     else if (opr.op == '-') opr.hasil = 0;
     else if (opr.op == '*') opr.hasil = 1;
 
-    while (1) {
-        if (scanf("%d", &input) != 1) break;
-
+    while (scanf("%d", &input) == 1) {
         if (input == -1) {
-            // sesuai test-case: langsung print hasil akhir
             printf("%d\n", opr.hasil);
             break;
         }

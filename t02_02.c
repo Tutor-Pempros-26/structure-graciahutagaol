@@ -41,8 +41,6 @@ int main() {
             printf("staple food\n");
             printf("perfect\n");
             break;
-        default:
-            printf("invalid input\n");
     }
     return 0;
 }
