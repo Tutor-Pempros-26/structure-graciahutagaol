@@ -3,37 +3,36 @@
 #include <stdio.h>
 
 struct Operasi {
-    char operator;
-    int count;
+    char op;
     int hasil;
 };
 
 int main() {
-    struct Operasi op;
+    struct Operasi opr;
     int input;
 
-    scanf(" %c", &op.operator);
-    op.count = 0;
+    scanf(" %c", &opr.op);
 
-    if (op.operator == '+') op.hasil = 0;
-    else if (op.operator == '-') op.hasil = 0;
-    else if (op.operator == '*') op.hasil = 1;
+    // inisialisasi sesuai operator
+    if (opr.op == '+') opr.hasil = 0;
+    else if (opr.op == '-') opr.hasil = 0;
+    else if (opr.op == '*') opr.hasil = 1;
 
     while (1) {
-        scanf("%d", &input);
-        if (input == -1 || op.count >= 5) {
-            printf("%c\n%d\n", op.operator, op.hasil);
+        if (scanf("%d", &input) != 1) break;
+
+        if (input == -1) {
+            // sesuai test-case: langsung print hasil akhir
+            printf("%d\n", opr.hasil);
             break;
         }
-        op.count++;
 
-        if (op.operator == '+') op.hasil += input;
-        else if (op.operator == '-') op.hasil -= input;
-        else if (op.operator == '*') op.hasil *= input;
+        if (opr.op == '+') opr.hasil += input;
+        else if (opr.op == '-') opr.hasil -= input;
+        else if (opr.op == '*') opr.hasil *= input;
 
-        printf("%c\n%d\n%d\n", op.operator, input, op.hasil);
+        printf("%d\n", opr.hasil);
     }
 
     return 0;
 }
-`1

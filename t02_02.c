@@ -4,8 +4,6 @@
 
 struct Menu {
     int level;
-    char kategori[20];
-    char kesimpulan[50];
 };
 
 int main() {

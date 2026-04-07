@@ -24,10 +24,11 @@ int main() {
     } else if (trx.total > 50000) {
         trx.potongan = trx.total * 0.05;
     } else {
-        trx.potongan = -1; // tanda tidak ada potongan
+        trx.potongan = -1;
     }
 
     if (trx.potongan == -1) {
+        // sesuai YAML: hanya "---" tanpa spasi tambahan
         printf("---\n%.2lf\n", trx.total);
     } else {
         printf("%.2lf\n%.2lf\n", trx.potongan, trx.total - trx.potongan);
