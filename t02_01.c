@@ -1,5 +1,4 @@
 // 12S25001 - Gracia Anggreini Fitaloka Hutagaol
-
 #include <stdio.h>
 
 struct Transaksi {
